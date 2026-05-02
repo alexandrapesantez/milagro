@@ -1,0 +1,276 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── PAGE HERO ── */
+.pageHero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--teal-deep) 100%);
+  padding: 10rem 2rem 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.pageHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--gold) 0,
+    var(--gold) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 30px 30px;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--white);
+}
+
+.heroInner .section-label {
+  color: var(--gold-light);
+}
+
+.heroTitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.heroTitle em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.pageHero .divider::before,
+.pageHero .divider::after {
+  background: rgba(255, 255, 255, 0.25);
+}
+.pageHero .divider-diamond {
+  background: var(--gold);
+}
+
+.heroSub {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 500px;
+  font-weight: 300;
+}
+
+/* ── PHILOSOPHY ── */
+.philosophy {
+  padding: 7rem 0;
+  background: var(--cream);
+}
+
+.philosophyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.bodyText {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.philosophyValues {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1rem;
+}
+
+.valueCard {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  background: var(--white);
+  border-left: 3px solid var(--gold);
+}
+
+.valueDot {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.valueTitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.valueDesc {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+}
+
+/* ── DOCTOR ── */
+.doctor {
+  padding: 7rem 0;
+  background: var(--white);
+}
+
+.doctorGrid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.doctorImageBox {
+  position: relative;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(145deg, var(--teal-pale), var(--sage-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.9rem;
+  border-radius: 2px;
+}
+
+.imageAccentTop {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: 50%;
+  height: 50%;
+  border-top: 2px solid var(--gold);
+  border-left: 2px solid var(--gold);
+  opacity: 0.5;
+}
+
+.imageAccentBottom {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  width: 50%;
+  height: 50%;
+  border-bottom: 2px solid var(--teal);
+  border-right: 2px solid var(--teal);
+  opacity: 0.4;
+}
+
+.doctorCredential {
+  font-size: 0.88rem;
+  color: var(--teal-deep);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.credentials {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.credItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.88rem;
+  color: var(--text-mid);
+}
+
+.credIcon {
+  color: var(--gold);
+  font-size: 0.6rem;
+  flex-shrink: 0;
+}
+
+/* ── WHY US ── */
+.whyUs {
+  background: var(--navy);
+  padding: 7rem 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+.sectionHeader .section-label {
+  color: var(--gold-light);
+}
+.lightTitle {
+  color: var(--white) !important;
+}
+
+.whyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.whyCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 2.5rem;
+  transition: background 0.3s;
+}
+
+.whyCard:hover {
+  background: rgba(37, 137, 168, 0.15);
+}
+
+.whyNum {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.5rem;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 0.75rem;
+}
+
+.whyTitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.whyDesc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .philosophyGrid,
+  .doctorGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,155 @@
+.footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footerTop {
+  padding: 5rem 0 4rem;
+  border-top: 1px solid rgba(200, 152, 42, 0.3);
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 2fr;
+  gap: 3rem;
+}
+
+.footerLogo {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+.footerTagline {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footerDesc {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+  max-width: 260px;
+}
+
+.footerHeading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.footerLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footerLinks a {
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.2s;
+}
+
+.footerLinks a:hover {
+  color: var(--gold);
+}
+
+.contactDetail {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.contactIcon {
+  color: var(--gold);
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+/* Bottom */
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 0;
+}
+
+.footerBottomInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.copyright,
+.footerNote {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.04em;
+}
+
+.footerDivider {
+  display: flex;
+}
+
+.diamond {
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .footerBrand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 540px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+  .footerBottomInner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.socialIcons {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.socialIcons a {
+  color: #6b7280; /* soft gray */
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.socialIcons a:hover {
+  color: #2563eb; /* clean medical blue */
+  transform: translateY(-2px);
+}
