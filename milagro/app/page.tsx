@@ -1,178 +1,251 @@
 import Link from "next/link";
+import Image from "next/image";
+import {
+  FiArrowRight,
+  FiArrowUpRight,
+  FiDroplet,
+  FiLayers,
+  FiHeart,
+  FiMapPin,
+  FiPhone,
+  FiClock,
+} from "react-icons/fi";
+import Chakana from "@/components/Chakana";
+import Reveal from "@/components/Reveal";
 import styles from "./page.module.css";
+
+const d = (s: number) => ({ "--d": `${s}s` }) as React.CSSProperties;
+
+const pillars = [
+  {
+    icon: <FiDroplet />,
+    title: "Medicina Homeopática",
+    desc: "Tratamientos naturales y personalizados que estimulan la capacidad curativa innata del organismo.",
+  },
+  {
+    icon: <FiLayers />,
+    title: "Enfoque Integrativo",
+    desc: "Combinamos lo mejor de la medicina convencional con terapias naturales para un cuidado completo.",
+  },
+  {
+    icon: <FiHeart />,
+    title: "Atención Personalizada",
+    desc: "Cada paciente es único. Escuchamos, comprendemos y diseñamos un plan de salud a tu medida.",
+  },
+];
+
+const services = [
+  {
+    num: "01",
+    title: "Homeopatía Clásica",
+    desc: "Remedios homeopáticos individualizados basados en un diagnóstico profundo y personalizado.",
+  },
+  {
+    num: "02",
+    title: "Medicina Botánica",
+    desc: "El poder de las plantas medicinales al servicio de tu salud, con respaldo científico.",
+  },
+  {
+    num: "03",
+    title: "Nutrición Integrativa",
+    desc: "Orientación nutricional que complementa tu tratamiento y fortalece tu bienestar.",
+  },
+  {
+    num: "04",
+    title: "Terapias Complementarias",
+    desc: "Acupuntura, flores de Bach y otras terapias que trabajan en armonía con tu cuerpo.",
+  },
+];
+
+const marquee = [
+  "Homeopatía Clásica",
+  "Medicina Botánica",
+  "Nutrición Integrativa",
+  "Terapias Complementarias",
+  "Medicina Preventiva",
+  "Pediatría Homeopática",
+];
 
 export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className={styles.hero}>
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroContent}>
-          <p className={`section-label animate-fade-up-delay-1`}>
-            Salud · Bienestar · Equilibrio
-          </p>
-          <h1 className={`${styles.heroTitle} animate-fade-up-delay-2`}>
-            Medicina que sana
-            <br />
-            <em>cuerpo y espíritu</em>
-          </h1>
-          <div className={`divider animate-fade-up-delay-3`}>
-            <span className="divider-diamond"></span>
+      <section className={`${styles.hero} on-dark`}>
+        <div className={styles.heroBlobA} />
+        <div className={styles.heroBlobB} />
+        <div className={styles.heroGrid} />
+
+        <div className={`container ${styles.heroInner}`}>
+          <div className={styles.heroText}>
+            <p className="eyebrow rise" style={d(0.1)}>
+              Salud · Bienestar · Equilibrio
+            </p>
+            <h1 className={`title-xl rise ${styles.heroTitle}`} style={d(0.2)}>
+              Medicina que sana{" "}
+              <span className="grad-text">cuerpo y espíritu</span>
+            </h1>
+            <p className="lead rise" style={d(0.35)}>
+              Medicina homeopática e integrativa con un enfoque humano,
+              personalizado y profundamente compasivo.
+            </p>
+            <div className={`rise ${styles.heroBtns}`} style={d(0.5)}>
+              <Link href="#contacto" className="btn btn-gold">
+                Agendar Cita <FiArrowRight />
+              </Link>
+              <Link href="/servicios" className="btn btn-ghost">
+                Nuestros Servicios
+              </Link>
+            </div>
           </div>
-          <p className={`${styles.heroSub} animate-fade-up-delay-3`}>
-            Medicina homeopática e integrativa con un enfoque humano,
-            <br />
-            personalizado y profundamente compasivo.
-          </p>
-          <div className={`${styles.heroBtns} animate-fade-up-delay-4`}>
-            <Link href="#contacto" className={styles.btnPrimary}>
-              Agendar Cita
-            </Link>
-            <Link href="/servicios" className={styles.btnSecondary}>
-              Nuestros Servicios
-            </Link>
+
+          <div className={`rise ${styles.heroVisual}`} style={d(0.3)}>
+            <Chakana className={styles.heroMotif} strokeWidth={0.35} />
+            <Chakana
+              className={styles.heroMotifInner}
+              strokeWidth={0.5}
+              detailed={false}
+            />
+            <div className={styles.heroGlow} />
+            <div className={styles.orbitPath}>
+              <span className={styles.orbitDot} />
+            </div>
+            <div className={`${styles.orbitPath} ${styles.orbitPathSm}`}>
+              <span className={`${styles.orbitDot} ${styles.orbitDotGold}`} />
+            </div>
+            <Image
+              src="/images/symbol.png"
+              alt="Símbolo de Milagro"
+              width={400}
+              height={345}
+              priority
+              className={styles.heroSymbol}
+            />
           </div>
         </div>
-        <div className={styles.heroPattern} />
       </section>
+
+      {/* ── MARQUEE ── */}
+      <div className={styles.marquee} aria-hidden="true">
+        <div className={styles.marqueeTrack}>
+          {[...marquee, ...marquee].map((m, i) => (
+            <span key={i} className={styles.marqueeItem}>
+              {m}
+              <Chakana className={styles.marqueeIcon} strokeWidth={6} detailed={false} />
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* ── PILLARS ── */}
       <section className={styles.pillars}>
-        <div className={styles.container}>
-          {[
-            {
-              icon: "✦",
-              title: "Medicina Homeopática",
-              desc: "Tratamientos naturales y personalizados que estimulan la capacidad curativa innata del organismo.",
-            },
-            {
-              icon: "◈",
-              title: "Enfoque Integrativo",
-              desc: "Combinamos lo mejor de la medicina convencional con terapias naturales para un cuidado completo.",
-            },
-            {
-              icon: "◇",
-              title: "Atención Personalizada",
-              desc: "Cada paciente es único. Escuchamos, comprendemos y diseñamos un plan de salud a tu medida.",
-            },
-          ].map((p) => (
-            <div key={p.title} className={styles.pillar}>
-              <span className={styles.pillarIcon}>{p.icon}</span>
-              <h3 className={styles.pillarTitle}>{p.title}</h3>
-              <p className={styles.pillarDesc}>{p.desc}</p>
-            </div>
+        <div className={`container ${styles.pillarsGrid}`}>
+          {pillars.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.1}>
+              <div className={styles.pillar}>
+                <span className={styles.pillarIcon}>{p.icon}</span>
+                <h3 className="title-md">{p.title}</h3>
+                <p>{p.desc}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* ── ABOUT SNIPPET ── */}
-      <section className={styles.aboutSnippet}>
-        <div className={styles.aboutGrid}>
-          <div className={styles.aboutImageCol}>
-            <div className={styles.aboutImageBox}>
-              <div className={styles.imagePlaceholder}>
-                <span>Foto del Doctor</span>
-              </div>
-              <div className={styles.imageAccent} />
+      <section className={styles.about}>
+        <div className={`container ${styles.aboutGrid}`}>
+          <Reveal className={styles.aboutVisual}>
+            <Chakana className={styles.aboutMotif} strokeWidth={0.35} />
+            <div className={styles.portrait}>
+              <Image
+                src="/images/doctor.jpg"
+                alt="Médico de Milagro Medicina Integrativa"
+                width={600}
+                height={664}
+              />
             </div>
-          </div>
-          <div className={styles.aboutTextCol}>
-            <p className="section-label">Sobre Nosotros</p>
-            <h2 className="section-title">
-              Un médico comprometido
-              <br />
-              con tu bienestar
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="eyebrow">Sobre Nosotros</p>
+            <h2 className={`title-lg ${styles.sectionTitle}`}>
+              Un médico comprometido{" "}
+              <span className="grad-text">con tu bienestar</span>
             </h2>
-            <div className="divider">
-              <span className="divider-diamond"></span>
-            </div>
-            <p className={styles.aboutText}>
+            <p className={styles.body}>
               En Milagro Medicina Integrativa, creemos que la salud verdadera
               surge del equilibrio entre el cuerpo, la mente y el espíritu.
               Nuestro enfoque homeopático e integrativo permite tratar al
               paciente de manera holística, abordando las causas profundas de
               cada dolencia.
             </p>
-            <p className={styles.aboutText}>
+            <p className={styles.body}>
               Con años de experiencia en medicina integrativa, nuestro equipo
               acompaña a cada paciente en su camino hacia una salud plena y
               sostenida.
             </p>
-            <Link href="/about" className={styles.btnOutline}>
-              Conocer más →
+            <Link href="/about" className="btn btn-line">
+              Conocer más <FiArrowRight />
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── SERVICES PREVIEW ── */}
-      <section className={styles.servicesPreview}>
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <p className="section-label">Lo que ofrecemos</p>
-            <h2 className="section-title">Nuestros Servicios</h2>
-            <div className="divider">
-              <span className="divider-diamond"></span>
+      <section className={`${styles.services} on-dark`}>
+        <div className={styles.servicesGlow} />
+        <div className="container">
+          <Reveal className={styles.sectionHead}>
+            <div>
+              <p className="eyebrow">Lo que ofrecemos</p>
+              <h2 className={`title-lg ${styles.sectionTitle}`}>
+                Nuestros <span className="grad-text">Servicios</span>
+              </h2>
             </div>
-            <p className={styles.sectionDesc}>
+            <p className="lead">
               Ofrecemos una amplia gama de tratamientos diseñados para
               restablecer el equilibrio natural de tu salud.
             </p>
-          </div>
+          </Reveal>
+
           <div className={styles.servicesGrid}>
-            {[
-              {
-                num: "01",
-                title: "Homeopatía Clásica",
-                desc: "Remedios homeopáticos individualizados basados en un diagnóstico profundo y personalizado.",
-              },
-              {
-                num: "02",
-                title: "Medicina Botánica",
-                desc: "El poder de las plantas medicinales al servicio de tu salud, con respaldo científico.",
-              },
-              {
-                num: "03",
-                title: "Nutrición Integrativa",
-                desc: "Orientación nutricional que complementa tu tratamiento y fortalece tu bienestar.",
-              },
-              {
-                num: "04",
-                title: "Terapias Complementarias",
-                desc: "Acupuntura, flores de Bach y otras terapias que trabajan en armonía con tu cuerpo.",
-              },
-            ].map((s) => (
-              <div key={s.num} className={styles.serviceCard}>
-                <span className={styles.serviceNum}>{s.num}</span>
-                <h3 className={styles.serviceCardTitle}>{s.title}</h3>
-                <p className={styles.serviceCardDesc}>{s.desc}</p>
-              </div>
+            {services.map((s, i) => (
+              <Reveal key={s.num} delay={i * 0.08}>
+                <Link href="/servicios" className={styles.serviceCard}>
+                  <Chakana className={styles.serviceMotif} strokeWidth={0.6} />
+                  <div className={styles.serviceTop}>
+                    <span className={styles.serviceNum}>{s.num}</span>
+                    <span className={styles.serviceArrow}>
+                      <FiArrowUpRight />
+                    </span>
+                  </div>
+                  <h3 className="title-md">{s.title}</h3>
+                  <p>{s.desc}</p>
+                </Link>
+              </Reveal>
             ))}
           </div>
-          <div className={styles.seeAll}>
-            <Link href="/servicios" className={styles.btnPrimary}>
-              Ver todos los servicios
+
+          <Reveal className={styles.seeAll}>
+            <Link href="/servicios" className="btn btn-gold">
+              Ver todos los servicios <FiArrowRight />
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── CONTACT ── */}
       <section className={styles.contact} id="contacto">
-        <div className={styles.container}>
-          <div className={styles.sectionHeader}>
-            <p className="section-label">Contáctanos</p>
-            <h2 className={`section-title ${styles.lightTitle}`}>
-              Agenda tu consulta
+        <div className={`container ${styles.contactGrid}`}>
+          <Reveal className={styles.contactInfo}>
+            <p className="eyebrow">Contáctanos</p>
+            <h2 className={`title-lg ${styles.sectionTitle}`}>
+              Agenda tu <span className="grad-text">consulta</span>
             </h2>
-            <div className="divider">
-              <span className="divider-diamond"></span>
-            </div>
-          </div>
-          <div className={styles.contactGrid}>
-            <div className={styles.contactInfo}>
-              <div className={styles.contactItem}>
-                <span className={styles.contactIcon}>◎</span>
+            <ul className={styles.contactList}>
+              <li>
+                <span className={styles.contactIcon}>
+                  <FiMapPin />
+                </span>
                 <div>
                   <h4>Ubicación</h4>
                   <p>
@@ -182,16 +255,20 @@ export default function Home() {
                     completa aquí
                   </p>
                 </div>
-              </div>
-              <div className={styles.contactItem}>
-                <span className={styles.contactIcon}>◎</span>
+              </li>
+              <li>
+                <span className={styles.contactIcon}>
+                  <FiPhone />
+                </span>
                 <div>
                   <h4>Teléfono / WhatsApp</h4>
                   <p>+593 98 933 6545</p>
                 </div>
-              </div>
-              <div className={styles.contactItem}>
-                <span className={styles.contactIcon}>◎</span>
+              </li>
+              <li>
+                <span className={styles.contactIcon}>
+                  <FiClock />
+                </span>
                 <div>
                   <h4>Horario de Atención</h4>
                   <p>
@@ -200,34 +277,36 @@ export default function Home() {
                     Sábado: 9:00 – 13:00
                   </p>
                 </div>
+              </li>
+            </ul>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <form className={styles.form}>
+              <Chakana className={styles.formMotif} strokeWidth={0.4} />
+              <div className={styles.formRow}>
+                <label>
+                  <span>Nombre completo</span>
+                  <input type="text" placeholder="Tu nombre" />
+                </label>
+                <label>
+                  <span>Teléfono</span>
+                  <input type="tel" placeholder="+593" />
+                </label>
               </div>
-            </div>
-            <form className={styles.contactForm}>
-              <input
-                type="text"
-                placeholder="Nombre completo"
-                className={styles.formInput}
-              />
-              <input
-                type="email"
-                placeholder="Correo electrónico"
-                className={styles.formInput}
-              />
-              <input
-                type="tel"
-                placeholder="Teléfono"
-                className={styles.formInput}
-              />
-              <textarea
-                placeholder="¿En qué podemos ayudarte?"
-                rows={4}
-                className={styles.formTextarea}
-              />
-              <button type="submit" className={styles.btnPrimary}>
-                Enviar mensaje
+              <label>
+                <span>Correo electrónico</span>
+                <input type="email" placeholder="tu@correo.com" />
+              </label>
+              <label>
+                <span>Mensaje</span>
+                <textarea rows={4} placeholder="¿En qué podemos ayudarte?" />
+              </label>
+              <button type="submit" className="btn btn-teal">
+                Enviar mensaje <FiArrowRight />
               </button>
             </form>
-          </div>
+          </Reveal>
         </div>
       </section>
     </>

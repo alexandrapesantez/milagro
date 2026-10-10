@@ -1,275 +1,246 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.title {
+  margin-bottom: 1.4rem;
 }
 
-/* ── PAGE HERO ── */
-.pageHero {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--teal-deep) 100%);
-  padding: 10rem 2rem 6rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.pageHero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image: repeating-linear-gradient(
-    45deg,
-    var(--gold) 0,
-    var(--gold) 1px,
-    transparent 0,
-    transparent 50%
-  );
-  background-size: 30px 30px;
-}
-
-.heroInner {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  color: var(--white);
-}
-
-.heroInner .section-label {
-  color: var(--gold-light);
-}
-
-.heroTitle {
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  color: var(--white);
-  line-height: 1.1;
-  margin-bottom: 0.5rem;
-}
-
-.heroTitle em {
-  font-style: italic;
-  color: var(--gold-light);
-}
-
-.pageHero .divider::before,
-.pageHero .divider::after {
-  background: rgba(255, 255, 255, 0.25);
-}
-.pageHero .divider-diamond {
-  background: var(--gold);
-}
-
-.heroSub {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.75);
-  max-width: 500px;
-  font-weight: 300;
+.body {
+  color: var(--text-mid);
+  margin-bottom: 1.1rem;
+  max-width: 580px;
 }
 
 /* ── PHILOSOPHY ── */
 .philosophy {
-  padding: 7rem 0;
-  background: var(--cream);
+  padding: clamp(4.5rem, 9vw, 7.5rem) 0;
 }
 
 .philosophyGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: start;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
 }
 
-.bodyText {
-  font-size: 0.95rem;
-  color: var(--text-mid);
-  margin-bottom: 1rem;
-  line-height: 1.8;
-}
-
-.philosophyValues {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding-top: 1rem;
+.values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 .valueCard {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1.25rem 1.5rem;
+  height: 100%;
+  padding: 1.8rem;
+  border-radius: var(--radius);
   background: var(--white);
-  border-left: 3px solid var(--gold);
+  border: 1px solid var(--line);
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease);
 }
 
-.valueDot {
-  width: 8px;
-  height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 6px;
+.valueCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px -30px rgba(0, 135, 165, 0.35);
 }
 
-.valueTitle {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 0.25rem;
+.valueIcon {
+  width: 34px;
+  margin-bottom: 1.2rem;
+  color: var(--teal);
+  transition: transform 0.8s var(--ease), color 0.3s;
 }
 
-.valueDesc {
-  font-size: 0.88rem;
+.valueCard:hover .valueIcon {
+  transform: rotate(90deg);
+  color: var(--gold-deep);
+}
+
+.valueCard h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.valueCard p {
+  font-size: 0.93rem;
   color: var(--text-mid);
 }
 
 /* ── DOCTOR ── */
 .doctor {
-  padding: 7rem 0;
-  background: var(--white);
+  padding: 0 0 clamp(4.5rem, 9vw, 7.5rem);
 }
 
 .doctorGrid {
   display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: 6rem;
+  grid-template-columns: 5fr 6fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
   align-items: center;
 }
 
-.doctorImageBox {
+.doctorVisual {
   position: relative;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
 }
 
-.imagePlaceholder {
+.doctorMotif {
+  position: absolute;
+  width: 130%;
+  color: var(--teal);
+  opacity: 0.16;
+  animation: spin 90s linear infinite;
+}
+
+.portrait {
+  position: relative;
   width: 100%;
-  aspect-ratio: 3/4;
-  background: linear-gradient(145deg, var(--teal-pale), var(--sage-light));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light);
-  font-style: italic;
-  font-size: 0.9rem;
-  border-radius: 2px;
+  max-width: 420px;
+  aspect-ratio: 600 / 720;
+  padding: 3px;
+  border-radius: 999px 999px var(--radius) var(--radius);
+  background: linear-gradient(160deg, var(--teal-mint), var(--teal-deep) 55%, var(--gold));
+  box-shadow: 0 50px 90px -40px rgba(0, 135, 165, 0.6);
 }
 
-.imageAccentTop {
-  position: absolute;
-  top: -16px;
-  left: -16px;
-  width: 50%;
-  height: 50%;
-  border-top: 2px solid var(--gold);
-  border-left: 2px solid var(--gold);
-  opacity: 0.5;
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 10%;
+  border-radius: 999px 999px calc(var(--radius) - 3px) calc(var(--radius) - 3px);
 }
 
-.imageAccentBottom {
-  position: absolute;
-  bottom: -16px;
-  right: -16px;
-  width: 50%;
-  height: 50%;
-  border-bottom: 2px solid var(--teal);
-  border-right: 2px solid var(--teal);
-  opacity: 0.4;
-}
-
-.doctorCredential {
-  font-size: 0.88rem;
+.credential {
+  display: inline-block;
+  margin: -0.4rem 0 1.6rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: rgba(0, 184, 158, 0.1);
   color: var(--teal-deep);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
 }
 
 .credentials {
-  margin-top: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.8rem;
 }
 
-.credItem {
+.credentials li {
   display: flex;
-  gap: 0.75rem;
   align-items: center;
-  font-size: 0.88rem;
-  color: var(--text-mid);
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
-.credIcon {
-  color: var(--gold);
-  font-size: 0.6rem;
+.credentials li span {
+  display: grid;
+  place-items: center;
   flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--grad-gold);
+  color: var(--ink);
+  font-size: 0.8rem;
 }
 
 /* ── WHY US ── */
 .whyUs {
-  background: var(--navy);
-  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+  margin: 0 clamp(0rem, 1.5vw, 1.25rem) clamp(4rem, 8vw, 6rem);
+  padding: clamp(4.5rem, 9vw, 7.5rem) 0;
+  border-radius: var(--radius-lg);
+  background: var(--ink);
 }
 
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 3.5rem;
+.whyGlow {
+  position: absolute;
+  right: -20%;
+  top: -40%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0, 167, 160, 0.25), transparent 60%);
+  pointer-events: none;
 }
-.sectionHeader .section-label {
-  color: var(--gold-light);
+
+.whyHead {
+  position: relative;
+  margin-bottom: 2.5rem;
 }
-.lightTitle {
-  color: var(--white) !important;
+
+.whyHead h2 {
+  color: var(--white);
 }
 
 .whyGrid {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
 
 .whyCard {
+  height: 100%;
+  padding: 2rem 1.7rem;
+  border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  padding: 2.5rem;
-  transition: background 0.3s;
+  border: 1px solid var(--line-dark);
+  transition:
+    background 0.4s,
+    transform 0.5s var(--ease),
+    border-color 0.4s;
 }
 
 .whyCard:hover {
-  background: rgba(37, 137, 168, 0.15);
+  transform: translateY(-5px);
+  background: rgba(0, 184, 158, 0.1);
+  border-color: rgba(0, 184, 158, 0.4);
 }
 
 .whyNum {
   display: block;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2.5rem;
-  color: var(--gold);
-  opacity: 0.4;
-  margin-bottom: 0.75rem;
+  margin-bottom: 2.4rem;
+  font-family: var(--font-label), sans-serif;
+  font-size: 2.8rem;
+  line-height: 1;
+  background: var(--grad-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.whyTitle {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.3rem;
+.whyCard h3 {
   color: var(--white);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.7rem;
+  font-size: 1.2rem;
 }
 
-.whyDesc {
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.7;
+.whyCard p {
+  color: var(--text-on-dark-mid);
+  font-size: 0.93rem;
 }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 1060px) {
+  .whyGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .philosophyGrid,
   .doctorGrid {
     grid-template-columns: 1fr;
-    gap: 3rem;
   }
+}
 
+@media (max-width: 560px) {
+  .values,
   .whyGrid {
     grid-template-columns: 1fr;
   }

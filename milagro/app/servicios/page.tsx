@@ -1,4 +1,8 @@
 import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
+import PageHero from "@/components/PageHero";
+import Chakana from "@/components/Chakana";
+import Reveal from "@/components/Reveal";
 import styles from "./servicios.module.css";
 
 const services = [
@@ -82,94 +86,83 @@ const services = [
   },
 ];
 
+const tones = [styles.toneTeal, styles.toneGold, styles.toneDeep];
+
 export default function Servicios() {
   return (
     <>
-      {/* ── PAGE HERO ── */}
-      <section className={styles.pageHero}>
-        <div className={styles.heroInner}>
-          <p className="section-label">Lo que ofrecemos</p>
-          <h1 className={styles.heroTitle}>
-            Nuestros
-            <br />
-            <em>Servicios</em>
-          </h1>
-          <div className="divider">
-            <span className="divider-diamond"></span>
-          </div>
-          <p className={styles.heroSub}>
-            Cada tratamiento es diseñado para ti, con el tiempo y la dedicación
-            que mereces.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Lo que ofrecemos"
+        title="Nuestros"
+        accent="Servicios"
+        sub="Cada tratamiento es diseñado para ti, con el tiempo y la dedicación que mereces."
+      />
 
-      {/* ── INTRO STRIP ── */}
-      <section className={styles.introStrip}>
-        <div className={styles.container}>
-          <p className={styles.introText}>
-            En Milagro Medicina Integrativa, cada servicio parte de una
-            comprensión profunda del paciente como un ser integral. Nuestros
-            tratamientos trabajan juntos para restablecer el equilibrio y
-            promover una salud duradera.
-          </p>
+      {/* ── INTRO ── */}
+      <section className={styles.intro}>
+        <div className="container">
+          <Reveal>
+            <p className={styles.introText}>
+              En Milagro Medicina Integrativa, cada servicio parte de una
+              comprensión profunda del paciente como un ser integral.{" "}
+              <span className="grad-text">
+                Nuestros tratamientos trabajan juntos para restablecer el
+                equilibrio y promover una salud duradera.
+              </span>
+            </p>
+          </Reveal>
         </div>
       </section>
 
       {/* ── SERVICES LIST ── */}
-      <section className={styles.servicesList}>
-        <div className={styles.container}>
+      <section className={styles.list}>
+        <div className="container">
           {services.map((s, i) => (
-            <div
+            <Reveal
               key={s.id}
-              className={`${styles.serviceRow} ${i % 2 !== 0 ? styles.reversed : ""}`}
+              className={`${styles.row} ${i % 2 !== 0 ? styles.reversed : ""}`}
             >
-              <div className={styles.serviceVisual}>
-                <span className={styles.serviceNumLarge}>{s.id}</span>
-                <div className={styles.visualBox}>
-                  <div className={styles.visualInner} />
-                </div>
+              <div className={`${styles.visual} ${tones[i % tones.length]}`}>
+                <Chakana className={styles.visualMotif} strokeWidth={0.4} />
+                <Chakana
+                  className={styles.visualMotifSm}
+                  strokeWidth={0.8}
+                  detailed={false}
+                />
+                <span className={styles.visualNum}>{s.id}</span>
               </div>
-              <div className={styles.serviceDetail}>
-                <p className="section-label">{s.tagline}</p>
-                <h2 className={styles.serviceTitle}>{s.title}</h2>
-                <div className="divider">
-                  <span className="divider-diamond"></span>
-                </div>
-                <p className={styles.serviceDesc}>{s.description}</p>
-                <ul className={styles.benefitsList}>
+              <div className={styles.detail}>
+                <p className="eyebrow">{s.tagline}</p>
+                <h2 className={styles.title}>{s.title}</h2>
+                <p className={styles.desc}>{s.description}</p>
+                <ul className={styles.benefits}>
                   {s.benefits.map((b) => (
-                    <li key={b} className={styles.benefitItem}>
-                      <span className={styles.benefitDot}></span>
-                      {b}
-                    </li>
+                    <li key={b}>{b}</li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className={styles.cta}>
-        <div className={styles.ctaInner}>
-          <p className="section-label">¿Listo para comenzar?</p>
-          <h2 className={styles.ctaTitle}>
-            Tu salud merece atención
-            <br />
-            <em>de calidad</em>
+      <section className={`${styles.cta} on-dark`}>
+        <div className={styles.ctaGlow} />
+        <Chakana className={styles.ctaMotif} strokeWidth={0.3} />
+        <Reveal className={styles.ctaInner}>
+          <p className="eyebrow">¿Listo para comenzar?</p>
+          <h2 className={`title-lg ${styles.ctaTitle}`}>
+            Tu salud merece atención{" "}
+            <span className="grad-text">de calidad</span>
           </h2>
-          <div className="divider">
-            <span className="divider-diamond"></span>
-          </div>
-          <p className={styles.ctaSub}>
+          <p className="lead">
             Agenda tu primera consulta y da el primer paso hacia tu bienestar.
           </p>
-          <Link href="/#contacto" className={styles.btnPrimary}>
-            Agendar Cita
+          <Link href="/#contacto" className="btn btn-gold">
+            Agendar Cita <FiArrowRight />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </>
   );
