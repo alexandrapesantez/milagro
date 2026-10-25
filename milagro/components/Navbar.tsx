@@ -1,20 +1,39 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { setLocale } from "@/app/actions";
+import type { Locale } from "@/lib/i18n";
+import type { Dictionary } from "@/dictionaries/es";
 import styles from "./Navbar.module.css";
 
-const links = [
-  { href: "/", label: "Inicio" },
-  { href: "/about", label: "Nosotros" },
-  { href: "/servicios", label: "Servicios" },
-];
-
-export default function Navbar() {
+export default function Navbar({
+  locale,
+  dict,
+  showToggle,
+}: {
+  locale: Locale;
+  dict: Dictionary["nav"];
+  showToggle: boolean;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [switching, startTransition] = useTransition();
   const pathname = usePathname();
+  const router = useRouter();
+
+  const links = [
+    { href: "/", label: dict.home },
+    { href: "/about", label: dict.about },
+    { href: "/servicios", label: dict.services },
+  ];
+
+  const switchLocale = (next: Locale) =>
+    startTransition(async () => {
+      await setLocale(next);
+      router.refresh();
+    });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -56,9 +75,27 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
-          <li style={{ "--i": links.length } as React.CSSProperties}>
+          {showToggle && (
+            <li style={{ "--i": links.length } as React.CSSProperties}>
+              <div className={styles.lang} role="group" aria-label="Idioma / Language">
+                {(["es", "en"] as const).map((l) => (
+                  <button
+                    key={l}
+                    type="button"
+                    onClick={() => switchLocale(l)}
+                    disabled={switching}
+                    aria-pressed={locale === l}
+                    className={locale === l ? styles.langActive : ""}
+                  >
+                    {l.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            </li>
+          )}
+          <li style={{ "--i": links.length + 1 } as React.CSSProperties}>
             <Link href="/#contacto" className={`btn btn-gold ${styles.cta}`} onClick={close}>
-              Agendar Cita
+              {dict.book}
             </Link>
           </li>
         </ul>
@@ -66,7 +103,7 @@ export default function Navbar() {
         <button
           className={`${styles.burger} ${menuOpen ? styles.open : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-label={menuOpen ? dict.closeMenu : dict.openMenu}
           aria-expanded={menuOpen}
         >
           <span />

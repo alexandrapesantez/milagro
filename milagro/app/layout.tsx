@@ -3,6 +3,7 @@ import { Sora, Manrope, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { getDictionary, getLocale, showLanguageToggle } from "@/lib/i18n";
 
 const display = Sora({
   subsets: ["latin"],
@@ -29,18 +30,21 @@ export const metadata: Metadata = {
     "Salud y bienestar a través de la medicina homeopática e integrativa en Ecuador.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
+  const dict = getDictionary(locale);
+
   return (
     <html
-      lang="es"
+      lang={locale}
       className={`${display.variable} ${body.variable} ${label.variable}`}
     >
       <body>
-        <Navbar />
+        <Navbar locale={locale} dict={dict.nav} showToggle={showLanguageToggle} />
         <main>{children}</main>
         <Footer />
       </body>
