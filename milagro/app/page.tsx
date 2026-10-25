@@ -12,6 +12,7 @@ import {
 } from "react-icons/fi";
 import Chakana from "@/components/Chakana";
 import Reveal from "@/components/Reveal";
+import ContactForm from "@/components/ContactForm";
 import { getDictionary } from "@/lib/i18n";
 import styles from "./page.module.css";
 
@@ -201,8 +202,6 @@ export default async function Home() {
                   <p>
                     Avenida Remigio Crespo Toral 4-30 y Avenida Ricardo Muñoz
                     Dávila
-                    <br />
-                    completa aquí
                   </p>
                 </div>
               </li>
@@ -228,30 +227,7 @@ export default async function Home() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <form className={styles.form}>
-              <Chakana className={styles.formMotif} strokeWidth={0.4} />
-              <div className={styles.formRow}>
-                <label>
-                  <span>{t.form.name}</span>
-                  <input type="text" placeholder={t.form.namePlaceholder} />
-                </label>
-                <label>
-                  <span>{t.form.phone}</span>
-                  <input type="tel" placeholder="+593" />
-                </label>
-              </div>
-              <label>
-                <span>{t.form.email}</span>
-                <input type="email" placeholder={t.form.emailPlaceholder} />
-              </label>
-              <label>
-                <span>{t.form.message}</span>
-                <textarea rows={4} placeholder={t.form.messagePlaceholder} />
-              </label>
-              <button type="submit" className="btn btn-teal">
-                {t.form.submit} <FiArrowRight />
-              </button>
-            </form>
+            <ContactForm t={t.form} />
           </Reveal>
         </div>
       </section>

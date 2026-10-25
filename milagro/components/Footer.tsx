@@ -97,7 +97,7 @@ export default function Footer({ dict }: { dict: Dictionary }) {
             </li>
             <li>
               <FiMail />
-              <span>contacto@milagromedicinaIntegrativa.com</span>
+              <a href="mailto:milagromedecu@gmail.com">milagromedecu@gmail.com</a>
             </li>
           </ul>
         </div>

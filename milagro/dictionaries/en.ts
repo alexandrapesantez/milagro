@@ -104,6 +104,11 @@ const en: Dictionary = {
       message: "Message",
       messagePlaceholder: "How can we help you?",
       submit: "Send message",
+      sending: "Sending…",
+      sent: "Thank you! We received your message and will contact you soon.",
+      error:
+        "We couldn't send your message. Please try again or message us on WhatsApp at +593 98 933 6545.",
+      subject: "New message from the Milagro website",
     },
   },
   about: {

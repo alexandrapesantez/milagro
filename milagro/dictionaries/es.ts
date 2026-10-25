@@ -103,6 +103,11 @@ const es = {
       message: "Mensaje",
       messagePlaceholder: "¿En qué podemos ayudarte?",
       submit: "Enviar mensaje",
+      sending: "Enviando…",
+      sent: "¡Gracias! Recibimos tu mensaje y te contactaremos pronto.",
+      error:
+        "No pudimos enviar tu mensaje. Inténtalo de nuevo o escríbenos por WhatsApp al +593 98 933 6545.",
+      subject: "Nuevo mensaje desde el sitio web de Milagro",
     },
   },
   about: {
