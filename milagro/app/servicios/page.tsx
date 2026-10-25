@@ -8,67 +8,33 @@ import styles from "./servicios.module.css";
 const services = [
   {
     id: "01",
-    title: "Homeopatía Clásica",
-    tagline: "Remedios individualizados para cada persona",
+    title: "Medicina Personalizada",
     description:
-      "La homeopatía clásica utiliza remedios naturales altamente diluidos para estimular la capacidad curativa innata del organismo. Cada tratamiento es completamente personalizado, basado en un análisis profundo de los síntomas físicos, emocionales y mentales del paciente.",
-    benefits: [
-      "Sin efectos secundarios",
-      "Tratamiento personalizado",
-      "Enfoque holístico",
-      "Adecuado para todas las edades",
-    ],
+      "Este es el corazón de Milagro. Primero escuchamos, luego caminamos contigo. La atención se construye a tu medida: tu historia, tus preocupaciones y lo que necesitas en cada etapa de tu camino hacia una mejor salud. No eres un protocolo. Eres la prioridad.",
   },
   {
     id: "02",
-    title: "Medicina Botánica",
-    tagline: "La sabiduría de las plantas al servicio de tu salud",
+    title: "Medicina Ortomolecular",
     description:
-      "Utilizamos plantas medicinales con respaldo científico para tratar diversas condiciones de salud. La fitoterapia ofrece soluciones naturales eficaces para el manejo de enfermedades crónicas, el fortalecimiento del sistema inmune y el equilibrio general del organismo.",
-    benefits: [
-      "Plantas de origen ecuatoriano",
-      "Preparaciones personalizadas",
-      "Combinaciones sinérgicas",
-      "Respaldo científico",
-    ],
+      "A través de análisis de sangre, te ayudamos a comprender lo que tu cuerpo está pidiendo. Con ese mapa, orientamos tu cuidado utilizando biopéptidos homeopáticos y enzimas para favorecer un reinicio celular más profundo y estimular la sanación desde adentro.",
   },
   {
     id: "03",
-    title: "Nutrición Integrativa",
-    tagline: "La alimentación como medicina preventiva",
+    title: "Medicina Ancestral",
     description:
-      "Diseñamos planes nutricionales individualizados que complementan el tratamiento médico y promueven el bienestar a largo plazo. Evaluamos la relación entre la alimentación y tus condiciones de salud para crear estrategias que nutran y sanen.",
-    benefits: [
-      "Planes alimentarios personalizados",
-      "Enfoque anti-inflamatorio",
-      "Salud digestiva",
-      "Nutrición funcional",
-    ],
+      "Honramos las medicinas vegetales andinas, la sanación energética y las prácticas de salud alternativas, integrando esta sabiduría ancestral en un enfoque de atención respetuoso y profundamente humano.",
   },
   {
     id: "04",
-    title: "Terapias Complementarias",
-    tagline: "Herramientas terapéuticas en armonía con tu cuerpo",
+    title: "Medicina Preventiva",
     description:
-      "Ofrecemos una selección de terapias complementarias que potencian el proceso de sanación. Trabajamos con flores de Bach, acupuntura y otras modalidades terapéuticas que actúan en los planos físico, emocional y energético.",
-    benefits: [
-      "Flores de Bach",
-      "Terapia neural",
-      "Medicina biorreguladora",
-    ],
+      "No esperamos a que la enfermedad hable primero. Identificamos riesgos de forma temprana, fortalecemos tu salud hoy y te ayudamos a proteger los años que vienen.",
   },
   {
     id: "05",
-    title: "Medicina Preventiva",
-    tagline: "Cuida tu salud antes de que aparezca la enfermedad",
+    title: "Coordinación de Especialidades",
     description:
-      "La prevención es el pilar más importante de la salud. Ofrecemos consultas de evaluación integral que identifican desequilibrios antes de que se manifiesten como enfermedad, diseñando estrategias preventivas personalizadas.",
-    benefits: [
-      "Evaluación de riesgos",
-      "Chequeos integrales",
-      "Educación en salud",
-      "Estilos de vida saludable",
-    ],
+      "Cuando tu cuidado requiere más de un experto, reunimos al equipo. Coordinamos a los especialistas para que no tengas que navegar el sistema solo: tu camino permanece claro, conectado y centrado en ti.",
   },
 ];
 
@@ -89,11 +55,11 @@ export default function Servicios() {
         <div className="container">
           <Reveal>
             <p className={styles.introText}>
-              En Milagro Medicina Integrativa, cada servicio parte de una
-              comprensión profunda del paciente como un ser integral.{" "}
+              En Milagro Medicina Integrativa, todo comienza con un principio:
+              el paciente es lo primero.{" "}
               <span className="grad-text">
-                Nuestros tratamientos trabajan juntos para restablecer el
-                equilibrio y promover una salud duradera.
+                Tu historia, tus necesidades y tu camino hacia una mejor salud
+                son el centro de cada decisión que tomamos.
               </span>
             </p>
           </Reveal>
@@ -118,14 +84,8 @@ export default function Servicios() {
                 <span className={styles.visualNum}>{s.id}</span>
               </div>
               <div className={styles.detail}>
-                <p className="eyebrow">{s.tagline}</p>
                 <h2 className={styles.title}>{s.title}</h2>
                 <p className={styles.desc}>{s.description}</p>
-                <ul className={styles.benefits}>
-                  {s.benefits.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
               </div>
             </Reveal>
           ))}
@@ -143,7 +103,8 @@ export default function Servicios() {
             <span className="grad-text">de calidad</span>
           </h2>
           <p className="lead">
-            Agenda tu primera consulta y da el primer paso hacia tu bienestar.
+            En Milagro, cada servicio regresa a la misma promesa: tú importas,
+            y tu atención debe sentirse humana.
           </p>
           <Link href="/#contacto" className="btn btn-gold">
             Agendar Cita <FiArrowRight />

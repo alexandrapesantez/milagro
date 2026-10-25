@@ -106,33 +106,7 @@
 
 .desc {
   color: var(--text-mid);
-  margin-bottom: 1.6rem;
   max-width: 580px;
-}
-
-.benefits {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-
-.benefits li {
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text);
-  transition:
-    border-color 0.3s,
-    color 0.3s;
-}
-
-.benefits li:hover {
-  border-color: var(--teal);
-  color: var(--teal-deep);
 }
 
 /* ── CTA ── */

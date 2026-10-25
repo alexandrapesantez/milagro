@@ -38,8 +38,8 @@ const reasons = [
   },
   {
     num: "02",
-    title: "Tratamientos sin efectos secundarios",
-    desc: "Remedios naturales que trabajan con tu cuerpo, no en su contra.",
+    title: "Coordinación con especialistas",
+    desc: "Cuando tu cuidado requiere más de un experto, reunimos al equipo para que no navegues el sistema solo.",
   },
   {
     num: "03",
@@ -78,7 +78,7 @@ export default function About() {
               cuidado genuinamente personalizado.
             </p>
             <p className={styles.body}>
-              La medicina homeopática e integrativa nos permite ver al paciente
+              La medicina integrativa nos permite ver al paciente
               en su totalidad — no solo los síntomas, sino las causas profundas
               que los originan. Esta visión holística es la base de cada
               consulta y cada tratamiento que ofrecemos.
@@ -128,6 +128,15 @@ export default function About() {
               Medicina Homeopática Clásica y Medicina Ancestral Andina. Su
               práctica se basa en un enfoque integrativo de la salud, que
               combina rigor científico y una visión profundamente humana.
+            </p>
+            <p className={styles.body}>
+              Nacido y criado en Connecticut, en el seno de una familia
+              ecuatoriana, conoció de cerca el sistema de salud de Estados
+              Unidos y vio cómo la relación entre médico y paciente se fue
+              reemplazando por el volumen, el papeleo y la burocracia. Fundó
+              Milagro Medicina Integrativa en Cuenca para que la atención en
+              salud vuelva a sentirse humana: calidad sobre volumen, presencia
+              sobre prisa.
             </p>
             <h4 className={styles.subhead}>Filosofía médica</h4>
             <p className={styles.body}>

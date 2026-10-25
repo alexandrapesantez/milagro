@@ -27,7 +27,7 @@ const label = Bebas_Neue({
 export const metadata: Metadata = {
   title: "Milagro Medicina Integrativa",
   description:
-    "Salud y bienestar a través de la medicina homeopática e integrativa en Ecuador.",
+    "Medicina general e integrativa en Cuenca, Ecuador, con una atención humana y centrada en el paciente.",
 };
 
 export default async function RootLayout({

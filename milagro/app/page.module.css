@@ -345,6 +345,11 @@
   gap: 1rem;
 }
 
+/* Odd count: the lead service spans the full row. */
+.servicesGrid > :first-child {
+  grid-column: 1 / -1;
+}
+
 .serviceCard {
   position: relative;
   display: flex;

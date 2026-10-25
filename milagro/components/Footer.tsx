@@ -75,19 +75,19 @@ export default function Footer() {
           <h4 className={styles.heading}>Servicios</h4>
           <ul className={styles.links}>
             <li>
-              <Link href="/servicios">Homeopatía Clásica</Link>
+              <Link href="/servicios">Medicina Personalizada</Link>
             </li>
             <li>
-              <Link href="/servicios">Medicina Botánica</Link>
+              <Link href="/servicios">Medicina Ortomolecular</Link>
             </li>
             <li>
-              <Link href="/servicios">Nutrición Integrativa</Link>
-            </li>
-            <li>
-              <Link href="/servicios">Terapias Complementarias</Link>
+              <Link href="/servicios">Medicina Ancestral</Link>
             </li>
             <li>
               <Link href="/servicios">Medicina Preventiva</Link>
+            </li>
+            <li>
+              <Link href="/servicios">Coordinación de Especialidades</Link>
             </li>
           </ul>
         </div>

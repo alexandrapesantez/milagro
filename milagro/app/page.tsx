@@ -3,7 +3,7 @@ import Image from "next/image";
 import {
   FiArrowRight,
   FiArrowUpRight,
-  FiDroplet,
+  FiUser,
   FiLayers,
   FiHeart,
   FiMapPin,
@@ -18,9 +18,9 @@ const d = (s: number) => ({ "--d": `${s}s` }) as React.CSSProperties;
 
 const pillars = [
   {
-    icon: <FiDroplet />,
-    title: "Medicina Homeopática",
-    desc: "Tratamientos naturales y personalizados que estimulan la capacidad curativa innata del organismo.",
+    icon: <FiUser />,
+    title: "El Paciente Primero",
+    desc: "Tu historia, tus necesidades y tu camino hacia una mejor salud son el centro de cada decisión que tomamos.",
   },
   {
     icon: <FiLayers />,
@@ -37,23 +37,28 @@ const pillars = [
 const services = [
   {
     num: "01",
-    title: "Homeopatía Clásica",
-    desc: "Remedios homeopáticos individualizados basados en un diagnóstico profundo y personalizado.",
+    title: "Medicina Personalizada",
+    desc: "El corazón de Milagro. Primero escuchamos, luego caminamos contigo. No eres un protocolo: eres la prioridad.",
   },
   {
     num: "02",
-    title: "Medicina Botánica",
-    desc: "El poder de las plantas medicinales al servicio de tu salud, con respaldo científico.",
+    title: "Medicina Ortomolecular",
+    desc: "Análisis de sangre, biopéptidos y enzimas para estimular la sanación desde adentro.",
   },
   {
     num: "03",
-    title: "Nutrición Integrativa",
-    desc: "Orientación nutricional que complementa tu tratamiento y fortalece tu bienestar.",
+    title: "Medicina Ancestral",
+    desc: "Medicinas vegetales andinas y sanación energética, con un enfoque respetuoso y profundamente humano.",
   },
   {
     num: "04",
-    title: "Terapias Complementarias",
-    desc: "Acupuntura, flores de Bach y otras terapias que trabajan en armonía con tu cuerpo.",
+    title: "Medicina Preventiva",
+    desc: "No esperamos a que la enfermedad hable primero. Identificamos riesgos de forma temprana.",
+  },
+  {
+    num: "05",
+    title: "Coordinación de Especialidades",
+    desc: "Reunimos a los especialistas para que no tengas que navegar el sistema solo.",
   },
 ];
 
@@ -168,16 +173,15 @@ export default function Home() {
               <span className="grad-text">con tu bienestar</span>
             </h2>
             <p className={styles.body}>
-              En Milagro Medicina Integrativa, creemos que la salud verdadera
-              surge del equilibrio entre el cuerpo, la mente y el espíritu.
-              Nuestro enfoque homeopático e integrativo permite tratar al
-              paciente de manera holística, abordando las causas profundas de
-              cada dolencia.
+              En Milagro Medicina Integrativa creemos que la atención en salud
+              debe volver a sentirse humana. Aquí, el paciente no es una
+              historia clínica, un código ni un espacio de 15 minutos: es el
+              centro de su propio camino hacia la salud.
             </p>
             <p className={styles.body}>
-              Con años de experiencia en medicina integrativa, nuestro equipo
-              acompaña a cada paciente en su camino hacia una salud plena y
-              sostenida.
+              Escuchar es lo primero. El tratamiento se construye alrededor de
+              la persona: su historia, su cuerpo, su vida. Calidad sobre
+              volumen, presencia sobre prisa.
             </p>
             <Link href="/about" className="btn btn-line">
               Conocer más <FiArrowRight />
