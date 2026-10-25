@@ -53,7 +53,6 @@ const services = [
       "Ofrecemos una selección de terapias complementarias que potencian el proceso de sanación. Trabajamos con flores de Bach, acupuntura y otras modalidades terapéuticas que actúan en los planos físico, emocional y energético.",
     benefits: [
       "Flores de Bach",
-      "Acupuntura",
       "Terapia neural",
       "Medicina biorreguladora",
     ],
@@ -69,19 +68,6 @@ const services = [
       "Chequeos integrales",
       "Educación en salud",
       "Estilos de vida saludable",
-    ],
-  },
-  {
-    id: "06",
-    title: "Consulta Pediátrica Homeopática",
-    tagline: "Salud natural para los más pequeños",
-    description:
-      "Los remedios homeopáticos son especialmente adecuados para los niños por su seguridad y suavidad. Tratamos condiciones comunes de la infancia — alergias, infecciones recurrentes, problemas digestivos — con un enfoque gentil y eficaz.",
-    benefits: [
-      "Seguro para bebés y niños",
-      "Sin contraindicaciones",
-      "Fortalece la inmunidad",
-      "Padres incluidos en el proceso",
     ],
   },
 ];

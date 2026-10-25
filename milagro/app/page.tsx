@@ -57,14 +57,10 @@ const services = [
   },
 ];
 
-const marquee = [
-  "Homeopatía Clásica",
-  "Medicina Botánica",
-  "Nutrición Integrativa",
-  "Terapias Complementarias",
-  "Medicina Preventiva",
-  "Pediatría Homeopática",
-];
+// Repeated so each half of the scrolling track is wider than the screen.
+const marquee = Array(4)
+  .fill(["Medicina General", "Medicina Alternativa"])
+  .flat() as string[];
 
 export default function Home() {
   return (
@@ -85,7 +81,7 @@ export default function Home() {
               <span className="grad-text">cuerpo y espíritu</span>
             </h1>
             <p className="lead rise" style={d(0.35)}>
-              Medicina homeopática e integrativa con un enfoque humano,
+              Medicina General e Integrativa con un enfoque humano,
               personalizado y profundamente compasivo.
             </p>
             <div className={`rise ${styles.heroBtns}`} style={d(0.5)}>
@@ -159,9 +155,9 @@ export default function Home() {
             <div className={styles.portrait}>
               <Image
                 src="/images/doctor.jpg"
-                alt="Médico de Milagro Medicina Integrativa"
-                width={600}
-                height={664}
+                alt="Dr. James Pesántez Mejía"
+                width={900}
+                height={1260}
               />
             </div>
           </Reveal>
@@ -272,9 +268,7 @@ export default function Home() {
                 <div>
                   <h4>Horario de Atención</h4>
                   <p>
-                    Lunes – Viernes: 9:00 – 18:00
-                    <br />
-                    Sábado: 9:00 – 13:00
+                    Lunes – Viernes: 10:00 – 18:00
                   </p>
                 </div>
               </li>

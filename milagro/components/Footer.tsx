@@ -22,7 +22,7 @@ export default function Footer() {
           />
           <p className={styles.tagline}>Salud · Bienestar · Equilibrio</p>
           <p className={styles.desc}>
-            Medicina homeopática e integrativa en Ecuador, con un enfoque
+            Medicina General e Integrativa en Ecuador, con un enfoque
             humano, natural y profundamente compasivo.
           </p>
           <div className={styles.social}>

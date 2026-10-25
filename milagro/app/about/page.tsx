@@ -25,10 +25,9 @@ const values = [
 ];
 
 const credentials = [
-  "Médico Cirujano — Universidad [Nombre]",
-  "Especialista en Homeopatía Clásica",
-  "Formación en Medicina Botánica",
-  "Miembro de [Asociación Médica]",
+  "Médico General — Universidad Católica de Cuenca",
+  "Formación en Medicina Homeopática Clásica",
+  "Formación en Medicina Ancestral Andina",
 ];
 
 const reasons = [
@@ -108,9 +107,9 @@ export default function About() {
             <div className={styles.portrait}>
               <Image
                 src="/images/doctor.jpg"
-                alt="Médico de Milagro Medicina Integrativa"
-                width={600}
-                height={664}
+                alt="Dr. James Pesántez Mejía"
+                width={900}
+                height={1260}
               />
             </div>
           </Reveal>
@@ -118,23 +117,25 @@ export default function About() {
           <Reveal delay={0.1}>
             <p className="eyebrow">Nuestro Médico</p>
             <h2 className={`title-lg ${styles.title}`}>
-              Dr. [James Pesantez Mejia ]
+              Dr. James Pesántez Mejía
             </h2>
             <p className={styles.credential}>
-              Médico Homeópata &amp; Especialista en Medicina Integrativa
+              Médico General &amp; Médico Ancestral Andino
             </p>
             <p className={styles.body}>
-              El Dr. [Nombre] es médico graduado de [Universidad], con
-              especialización en medicina homeopática y un postgrado en
-              medicina integrativa. Con más de [X] años de experiencia, ha
-              atendido a cientos de pacientes en Ecuador con un enfoque
-              profundamente humano y científico.
+              El Dr. James Pesántez Mejía es médico general egresado de la
+              Universidad Católica de Cuenca, con formación adicional en
+              Medicina Homeopática Clásica y Medicina Ancestral Andina. Su
+              práctica se basa en un enfoque integrativo de la salud, que
+              combina rigor científico y una visión profundamente humana.
             </p>
+            <h4 className={styles.subhead}>Filosofía médica</h4>
             <p className={styles.body}>
-              Su filosofía médica combina el rigor de la medicina convencional
-              con la sabiduría de las terapias naturales, siempre buscando el
-              tratamiento más efectivo y menos invasivo para cada paciente.
+              Integra el rigor de la medicina convencional con la sabiduría de
+              las terapias naturales, priorizando siempre el tratamiento más
+              efectivo y menos invasivo para cada paciente.
             </p>
+            <h4 className={styles.subhead}>Formación</h4>
             <ul className={styles.credentials}>
               {credentials.map((c) => (
                 <li key={c}>

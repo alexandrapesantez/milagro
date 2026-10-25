@@ -121,11 +121,18 @@
   font-weight: 600;
 }
 
+.subhead {
+  margin: 1.6rem 0 0.6rem;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
 .credentials {
   list-style: none;
   display: grid;
   gap: 0.7rem;
-  margin-top: 1.8rem;
+  margin-top: 0.4rem;
 }
 
 .credentials li {

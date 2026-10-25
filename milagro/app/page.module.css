@@ -157,7 +157,6 @@
   margin: clamp(2.5rem, 5vw, 4rem) 0 0;
   padding: 1.1rem 0;
   background: var(--grad-teal-x);
-  transform: rotate(-1.2deg) scale(1.02);
 }
 
 .marqueeTrack {
