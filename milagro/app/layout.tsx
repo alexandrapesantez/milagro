@@ -3,7 +3,7 @@ import { Sora, Manrope, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getDictionary, getLocale, showLanguageToggle } from "@/lib/i18n";
+import { getDictionary, getLocale } from "@/lib/i18n";
 
 const display = Sora({
   subsets: ["latin"],
@@ -24,11 +24,13 @@ const label = Bebas_Neue({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Milagro Medicina Integrativa",
-  description:
-    "Medicina general e integrativa en Cuenca, Ecuador, con una atención humana y centrada en el paciente.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const dict = await getDictionary();
+  return {
+    title: "Milagro Medicina Integrativa",
+    description: dict.meta.description,
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -36,7 +38,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const locale = await getLocale();
-  const dict = getDictionary(locale);
+  const dict = await getDictionary();
 
   return (
     <html
@@ -44,9 +46,9 @@ export default async function RootLayout({
       className={`${display.variable} ${body.variable} ${label.variable}`}
     >
       <body>
-        <Navbar locale={locale} dict={dict.nav} showToggle={showLanguageToggle} />
+        <Navbar locale={locale} dict={dict.nav} />
         <main>{children}</main>
-        <Footer />
+        <Footer dict={dict} />
       </body>
     </html>
   );

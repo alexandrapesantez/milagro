@@ -4,8 +4,11 @@ import styles from "./Footer.module.css";
 import { FaInstagram, FaFacebook, FaTiktok } from "react-icons/fa";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 import Chakana from "./Chakana";
+import type { Dictionary } from "@/dictionaries/es";
 
-export default function Footer() {
+export default function Footer({ dict }: { dict: Dictionary }) {
+  const { nav, footer } = dict;
+
   return (
     <footer className={`${styles.footer} on-dark`}>
       <Chakana className={styles.bgMotif} strokeWidth={0.25} />
@@ -20,11 +23,8 @@ export default function Footer() {
             height={269}
             className={styles.logo}
           />
-          <p className={styles.tagline}>Salud · Bienestar · Equilibrio</p>
-          <p className={styles.desc}>
-            Medicina General e Integrativa en Ecuador, con un enfoque
-            humano, natural y profundamente compasivo.
-          </p>
+          <p className={styles.tagline}>{dict.tagline}</p>
+          <p className={styles.desc}>{footer.desc}</p>
           <div className={styles.social}>
             <a
               href="https://www.instagram.com/milagromedicinaintegrativa_?igsh=czE1dm1hOHR6eHJq&utm_source=qr"
@@ -54,46 +54,36 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className={styles.heading}>Navegación</h4>
+          <h4 className={styles.heading}>{footer.navHeading}</h4>
           <ul className={styles.links}>
             <li>
-              <Link href="/">Inicio</Link>
+              <Link href="/">{nav.home}</Link>
             </li>
             <li>
-              <Link href="/about">Nosotros</Link>
+              <Link href="/about">{nav.about}</Link>
             </li>
             <li>
-              <Link href="/servicios">Servicios</Link>
+              <Link href="/servicios">{nav.services}</Link>
             </li>
             <li>
-              <Link href="/#contacto">Contacto</Link>
+              <Link href="/#contacto">{nav.contact}</Link>
             </li>
           </ul>
         </div>
 
         <div>
-          <h4 className={styles.heading}>Servicios</h4>
+          <h4 className={styles.heading}>{footer.servicesHeading}</h4>
           <ul className={styles.links}>
-            <li>
-              <Link href="/servicios">Medicina Personalizada</Link>
-            </li>
-            <li>
-              <Link href="/servicios">Medicina Ortomolecular</Link>
-            </li>
-            <li>
-              <Link href="/servicios">Medicina Ancestral</Link>
-            </li>
-            <li>
-              <Link href="/servicios">Medicina Preventiva</Link>
-            </li>
-            <li>
-              <Link href="/servicios">Coordinación de Especialidades</Link>
-            </li>
+            {dict.services.map((s) => (
+              <li key={s.title}>
+                <Link href="/servicios">{s.title}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
-          <h4 className={styles.heading}>Contacto</h4>
+          <h4 className={styles.heading}>{footer.contactHeading}</h4>
           <ul className={styles.contact}>
             <li>
               <FiMapPin />
@@ -116,10 +106,10 @@ export default function Footer() {
       <div className="container">
         <div className={styles.bottom}>
           <p>
-            © {new Date().getFullYear()} Milagro Medicina Integrativa. Todos los
-            derechos reservados.
+            © {new Date().getFullYear()} Milagro Medicina Integrativa.{" "}
+            {footer.rights}
           </p>
-          <p className={styles.note}>Salud y Bienestar</p>
+          <p className={styles.note}>{footer.note}</p>
         </div>
       </div>
     </footer>

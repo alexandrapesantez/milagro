@@ -11,11 +11,9 @@ import styles from "./Navbar.module.css";
 export default function Navbar({
   locale,
   dict,
-  showToggle,
 }: {
   locale: Locale;
   dict: Dictionary["nav"];
-  showToggle: boolean;
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -75,24 +73,22 @@ export default function Navbar({
               </Link>
             </li>
           ))}
-          {showToggle && (
-            <li style={{ "--i": links.length } as React.CSSProperties}>
-              <div className={styles.lang} role="group" aria-label="Idioma / Language">
-                {(["es", "en"] as const).map((l) => (
-                  <button
-                    key={l}
-                    type="button"
-                    onClick={() => switchLocale(l)}
-                    disabled={switching}
-                    aria-pressed={locale === l}
-                    className={locale === l ? styles.langActive : ""}
-                  >
-                    {l.toUpperCase()}
-                  </button>
-                ))}
-              </div>
-            </li>
-          )}
+          <li style={{ "--i": links.length } as React.CSSProperties}>
+            <div className={styles.lang} role="group" aria-label="Idioma / Language">
+              {(["es", "en"] as const).map((l) => (
+                <button
+                  key={l}
+                  type="button"
+                  onClick={() => switchLocale(l)}
+                  disabled={switching}
+                  aria-pressed={locale === l}
+                  className={locale === l ? styles.langActive : ""}
+                >
+                  {l.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </li>
           <li style={{ "--i": links.length + 1 } as React.CSSProperties}>
             <Link href="/#contacto" className={`btn btn-gold ${styles.cta}`} onClick={close}>
               {dict.book}

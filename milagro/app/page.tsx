@@ -12,62 +12,19 @@ import {
 } from "react-icons/fi";
 import Chakana from "@/components/Chakana";
 import Reveal from "@/components/Reveal";
+import { getDictionary } from "@/lib/i18n";
 import styles from "./page.module.css";
 
 const d = (s: number) => ({ "--d": `${s}s` }) as React.CSSProperties;
 
-const pillars = [
-  {
-    icon: <FiUser />,
-    title: "El Paciente Primero",
-    desc: "Tu historia, tus necesidades y tu camino hacia una mejor salud son el centro de cada decisión que tomamos.",
-  },
-  {
-    icon: <FiLayers />,
-    title: "Enfoque Integrativo",
-    desc: "Combinamos lo mejor de la medicina convencional con terapias naturales para un cuidado completo.",
-  },
-  {
-    icon: <FiHeart />,
-    title: "Atención Personalizada",
-    desc: "Cada paciente es único. Escuchamos, comprendemos y diseñamos un plan de salud a tu medida.",
-  },
-];
+const pillarIcons = [<FiUser key="u" />, <FiLayers key="l" />, <FiHeart key="h" />];
 
-const services = [
-  {
-    num: "01",
-    title: "Medicina Personalizada",
-    desc: "El corazón de Milagro. Primero escuchamos, luego caminamos contigo. No eres un protocolo: eres la prioridad.",
-  },
-  {
-    num: "02",
-    title: "Medicina Ortomolecular",
-    desc: "Análisis de sangre, biopéptidos y enzimas para estimular la sanación desde adentro.",
-  },
-  {
-    num: "03",
-    title: "Medicina Ancestral",
-    desc: "Medicinas vegetales andinas y sanación energética, con un enfoque respetuoso y profundamente humano.",
-  },
-  {
-    num: "04",
-    title: "Medicina Preventiva",
-    desc: "No esperamos a que la enfermedad hable primero. Identificamos riesgos de forma temprana.",
-  },
-  {
-    num: "05",
-    title: "Coordinación de Especialidades",
-    desc: "Reunimos a los especialistas para que no tengas que navegar el sistema solo.",
-  },
-];
+export default async function Home() {
+  const dict = await getDictionary();
+  const t = dict.home;
+  // Repeated so each half of the scrolling track is wider than the screen.
+  const marquee = Array(4).fill(t.marquee).flat() as string[];
 
-// Repeated so each half of the scrolling track is wider than the screen.
-const marquee = Array(4)
-  .fill(["Medicina General", "Medicina Alternativa"])
-  .flat() as string[];
-
-export default function Home() {
   return (
     <>
       {/* ── HERO ── */}
@@ -79,22 +36,21 @@ export default function Home() {
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroText}>
             <p className="eyebrow rise" style={d(0.1)}>
-              Salud · Bienestar · Equilibrio
+              {dict.tagline}
             </p>
             <h1 className={`title-xl rise ${styles.heroTitle}`} style={d(0.2)}>
-              Medicina que sana{" "}
-              <span className="grad-text">cuerpo y espíritu</span>
+              {t.heroTitle}{" "}
+              <span className="grad-text">{t.heroAccent}</span>
             </h1>
             <p className="lead rise" style={d(0.35)}>
-              Medicina General e Integrativa con un enfoque humano,
-              personalizado y profundamente compasivo.
+              {t.heroLead}
             </p>
             <div className={`rise ${styles.heroBtns}`} style={d(0.5)}>
               <Link href="#contacto" className="btn btn-gold">
-                Agendar Cita <FiArrowRight />
+                {dict.nav.book} <FiArrowRight />
               </Link>
               <Link href="/servicios" className="btn btn-ghost">
-                Nuestros Servicios
+                {t.ourServices}
               </Link>
             </div>
           </div>
@@ -115,7 +71,7 @@ export default function Home() {
             </div>
             <Image
               src="/images/symbol.png"
-              alt="Símbolo de Milagro"
+              alt={t.symbolAlt}
               width={400}
               height={345}
               priority
@@ -140,10 +96,10 @@ export default function Home() {
       {/* ── PILLARS ── */}
       <section className={styles.pillars}>
         <div className={`container ${styles.pillarsGrid}`}>
-          {pillars.map((p, i) => (
+          {t.pillars.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.1}>
               <div className={styles.pillar}>
-                <span className={styles.pillarIcon}>{p.icon}</span>
+                <span className={styles.pillarIcon}>{pillarIcons[i]}</span>
                 <h3 className="title-md">{p.title}</h3>
                 <p>{p.desc}</p>
               </div>
@@ -167,24 +123,18 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="eyebrow">Sobre Nosotros</p>
+            <p className="eyebrow">{t.aboutEyebrow}</p>
             <h2 className={`title-lg ${styles.sectionTitle}`}>
-              Un médico comprometido{" "}
-              <span className="grad-text">con tu bienestar</span>
+              {t.aboutTitle}{" "}
+              <span className="grad-text">{t.aboutAccent}</span>
             </h2>
-            <p className={styles.body}>
-              En Milagro Medicina Integrativa creemos que la atención en salud
-              debe volver a sentirse humana. Aquí, el paciente no es una
-              historia clínica, un código ni un espacio de 15 minutos: es el
-              centro de su propio camino hacia la salud.
-            </p>
-            <p className={styles.body}>
-              Escuchar es lo primero. El tratamiento se construye alrededor de
-              la persona: su historia, su cuerpo, su vida. Calidad sobre
-              volumen, presencia sobre prisa.
-            </p>
+            {t.aboutBody.map((p) => (
+              <p key={p} className={styles.body}>
+                {p}
+              </p>
+            ))}
             <Link href="/about" className="btn btn-line">
-              Conocer más <FiArrowRight />
+              {t.learnMore} <FiArrowRight />
             </Link>
           </Reveal>
         </div>
@@ -196,30 +146,30 @@ export default function Home() {
         <div className="container">
           <Reveal className={styles.sectionHead}>
             <div>
-              <p className="eyebrow">Lo que ofrecemos</p>
+              <p className="eyebrow">{t.servicesEyebrow}</p>
               <h2 className={`title-lg ${styles.sectionTitle}`}>
-                Nuestros <span className="grad-text">Servicios</span>
+                {t.servicesTitle}{" "}
+                <span className="grad-text">{t.servicesAccent}</span>
               </h2>
             </div>
-            <p className="lead">
-              Ofrecemos una amplia gama de tratamientos diseñados para
-              restablecer el equilibrio natural de tu salud.
-            </p>
+            <p className="lead">{t.servicesLead}</p>
           </Reveal>
 
           <div className={styles.servicesGrid}>
-            {services.map((s, i) => (
-              <Reveal key={s.num} delay={i * 0.08}>
+            {dict.services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 0.08}>
                 <Link href="/servicios" className={styles.serviceCard}>
                   <Chakana className={styles.serviceMotif} strokeWidth={0.6} />
                   <div className={styles.serviceTop}>
-                    <span className={styles.serviceNum}>{s.num}</span>
+                    <span className={styles.serviceNum}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
                     <span className={styles.serviceArrow}>
                       <FiArrowUpRight />
                     </span>
                   </div>
                   <h3 className="title-md">{s.title}</h3>
-                  <p>{s.desc}</p>
+                  <p>{s.short}</p>
                 </Link>
               </Reveal>
             ))}
@@ -227,7 +177,7 @@ export default function Home() {
 
           <Reveal className={styles.seeAll}>
             <Link href="/servicios" className="btn btn-gold">
-              Ver todos los servicios <FiArrowRight />
+              {t.seeAll} <FiArrowRight />
             </Link>
           </Reveal>
         </div>
@@ -237,9 +187,9 @@ export default function Home() {
       <section className={styles.contact} id="contacto">
         <div className={`container ${styles.contactGrid}`}>
           <Reveal className={styles.contactInfo}>
-            <p className="eyebrow">Contáctanos</p>
+            <p className="eyebrow">{t.contactEyebrow}</p>
             <h2 className={`title-lg ${styles.sectionTitle}`}>
-              Agenda tu <span className="grad-text">consulta</span>
+              {t.contactTitle} <span className="grad-text">{t.contactAccent}</span>
             </h2>
             <ul className={styles.contactList}>
               <li>
@@ -247,7 +197,7 @@ export default function Home() {
                   <FiMapPin />
                 </span>
                 <div>
-                  <h4>Ubicación</h4>
+                  <h4>{t.location}</h4>
                   <p>
                     Avenida Remigio Crespo Toral 4-30 y Avenida Ricardo Muñoz
                     Dávila
@@ -261,7 +211,7 @@ export default function Home() {
                   <FiPhone />
                 </span>
                 <div>
-                  <h4>Teléfono / WhatsApp</h4>
+                  <h4>{t.phone}</h4>
                   <p>+593 98 933 6545</p>
                 </div>
               </li>
@@ -270,10 +220,8 @@ export default function Home() {
                   <FiClock />
                 </span>
                 <div>
-                  <h4>Horario de Atención</h4>
-                  <p>
-                    Lunes – Viernes: 10:00 – 18:00
-                  </p>
+                  <h4>{t.hours}</h4>
+                  <p>{t.hoursValue}</p>
                 </div>
               </li>
             </ul>
@@ -284,24 +232,24 @@ export default function Home() {
               <Chakana className={styles.formMotif} strokeWidth={0.4} />
               <div className={styles.formRow}>
                 <label>
-                  <span>Nombre completo</span>
-                  <input type="text" placeholder="Tu nombre" />
+                  <span>{t.form.name}</span>
+                  <input type="text" placeholder={t.form.namePlaceholder} />
                 </label>
                 <label>
-                  <span>Teléfono</span>
+                  <span>{t.form.phone}</span>
                   <input type="tel" placeholder="+593" />
                 </label>
               </div>
               <label>
-                <span>Correo electrónico</span>
-                <input type="email" placeholder="tu@correo.com" />
+                <span>{t.form.email}</span>
+                <input type="email" placeholder={t.form.emailPlaceholder} />
               </label>
               <label>
-                <span>Mensaje</span>
-                <textarea rows={4} placeholder="¿En qué podemos ayudarte?" />
+                <span>{t.form.message}</span>
+                <textarea rows={4} placeholder={t.form.messagePlaceholder} />
               </label>
               <button type="submit" className="btn btn-teal">
-                Enviar mensaje <FiArrowRight />
+                {t.form.submit} <FiArrowRight />
               </button>
             </form>
           </Reveal>
