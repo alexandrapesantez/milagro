@@ -162,7 +162,7 @@
 .marqueeTrack {
   display: flex;
   width: max-content;
-  animation: marquee 90s linear infinite;
+  animation: marqueeScroll 90s linear infinite;
 }
 
 .marqueeItem {
@@ -649,5 +649,44 @@
 
   .form button {
     align-self: stretch;
+  }
+}
+
+/* ── KEYFRAMES ── */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-4%, 5%, 0) scale(0.95);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes marqueeScroll {
+  to {
+    transform: translateX(-50%);
   }
 }

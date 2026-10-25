@@ -252,3 +252,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── KEYFRAMES ── */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

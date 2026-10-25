@@ -170,3 +170,11 @@
     order: 0;
   }
 }
+
+/* ── KEYFRAMES ── */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
