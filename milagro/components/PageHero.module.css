@@ -83,6 +83,14 @@
   }
 }
 
+/* Animating 60px blurs is costly on phones; keep the blobs still there. */
+@media (max-width: 860px) {
+  .blobA,
+  .blobB {
+    animation: none;
+  }
+}
+
 /* ── KEYFRAMES ── */
 
 @keyframes spin {

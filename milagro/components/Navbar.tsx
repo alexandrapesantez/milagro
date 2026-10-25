@@ -42,6 +42,8 @@ export default function Navbar({
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+    // Pauses page animations so the menu reveal has the GPU to itself.
+    document.body.classList.toggle("menu-open", menuOpen);
   }, [menuOpen]);
 
   const close = () => setMenuOpen(false);

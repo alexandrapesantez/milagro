@@ -297,6 +297,11 @@ img {
   animation-delay: var(--d, 0s);
 }
 
+.menu-open main *,
+.menu-open footer * {
+  animation-play-state: paused !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
