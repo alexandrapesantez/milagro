@@ -124,12 +124,9 @@
   text-decoration: underline;
 }
 
-/* ── NOTES ── */
-.notes {
-  display: grid;
-  gap: 0.4rem;
+/* ── NOTE ── */
+.note {
   margin-top: 2.5rem;
-  padding-left: 1.2rem;
   color: var(--text-mid);
   font-size: 0.93rem;
 }

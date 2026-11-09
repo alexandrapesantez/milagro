@@ -235,11 +235,7 @@ const en: Dictionary = {
     ],
     calendarTitle: "Booking calendar",
     openExternal: "Calendar not loading? Open it in a new tab",
-    notes: [
-      "Office hours: Monday to Friday, 10:00 – 12:30 and 15:00 – 18:00.",
-      "You can book up to one month in advance, with at least 3 hours' notice.",
-      "To cancel or reschedule, use the link in your confirmation email.",
-    ],
+    note: "To cancel or reschedule, use the link in your confirmation email.",
   },
   footer: {
     desc: "General and Integrative Medicine in Ecuador, with a humane, natural, and deeply compassionate approach.",

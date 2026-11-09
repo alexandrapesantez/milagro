@@ -234,11 +234,7 @@ const es = {
     ],
     calendarTitle: "Calendario de reservas",
     openExternal: "¿No carga el calendario? Ábrelo en una nueva pestaña",
-    notes: [
-      "Horario de atención: lunes a viernes, 10:00 – 12:30 y 15:00 – 18:00.",
-      "Puedes reservar hasta con un mes de anticipación y con un mínimo de 3 horas de aviso.",
-      "Para cancelar o reprogramar, usa el enlace del correo de confirmación.",
-    ],
+    note: "Para cancelar o reprogramar, usa el enlace del correo de confirmación.",
   },
   footer: {
     desc: "Medicina General e Integrativa en Ecuador, con un enfoque humano, natural y profundamente compasivo.",

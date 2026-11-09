@@ -26,11 +26,7 @@ export default async function Agendar() {
       <section className={styles.booking}>
         <div className="container">
           <BookingPicker t={t} locale={locale} />
-          <ul className={styles.notes}>
-            {t.notes.map((n) => (
-              <li key={n}>{n}</li>
-            ))}
-          </ul>
+          <p className={styles.note}>{t.note}</p>
         </div>
       </section>
     </>
