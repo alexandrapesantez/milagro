@@ -92,7 +92,7 @@ export default function Navbar({
             </div>
           </li>
           <li style={{ "--i": links.length + 1 } as React.CSSProperties}>
-            <Link href="/#contacto" className={`btn btn-gold ${styles.cta}`} onClick={close}>
+            <Link href="/agendar" className={`btn btn-gold ${styles.cta}`} onClick={close}>
               {dict.book}
             </Link>
           </li>

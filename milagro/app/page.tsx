@@ -47,7 +47,7 @@ export default async function Home() {
               {t.heroLead}
             </p>
             <div className={`rise ${styles.heroBtns}`} style={d(0.5)}>
-              <Link href="#contacto" className="btn btn-gold">
+              <Link href="/agendar" className="btn btn-gold">
                 {dict.nav.book} <FiArrowRight />
               </Link>
               <Link href="/servicios" className="btn btn-ghost">

@@ -193,6 +193,51 @@ const es = {
     ctaLead:
       "En Milagro, cada servicio regresa a la misma promesa: tú importas, y tu atención debe sentirse humana.",
   },
+  booking: {
+    metaTitle: "Agendar Cita",
+    heroEyebrow: "Reserva en línea",
+    heroTitle: "Agenda tu",
+    heroAccent: "Cita",
+    heroSub:
+      "Elige el tipo de consulta, escoge el día y la hora que mejor te convengan, y recibirás la confirmación en tu correo.",
+    step1: "Elige el tipo de cita",
+    step2: "Escoge día y hora",
+    inPerson: "Presencial",
+    online: "En línea · Google Meet",
+    types: [
+      {
+        name: "Primera Consulta",
+        duration: "60 min",
+        online: false,
+        desc: "Para pacientes nuevos: historia clínica completa y un plan de atención personalizado.",
+      },
+      {
+        name: "Telemedicina",
+        duration: "45 min",
+        online: true,
+        desc: "Consulta por videollamada desde donde estés. Recibirás el enlace de Google Meet al reservar.",
+      },
+      {
+        name: "Seguimiento",
+        duration: "30 min",
+        online: false,
+        desc: "Para pacientes en tratamiento: revisamos tu evolución y ajustamos tu plan.",
+      },
+      {
+        name: "Revisión de Exámenes",
+        duration: "15 min",
+        online: false,
+        desc: "Revisión de resultados de laboratorio o imagen con el doctor.",
+      },
+    ],
+    calendarTitle: "Calendario de reservas",
+    openExternal: "¿No carga el calendario? Ábrelo en una nueva pestaña",
+    notes: [
+      "Horario de atención: lunes a viernes, 10:00 – 12:30 y 15:00 – 18:00.",
+      "Puedes reservar hasta con un mes de anticipación y con un mínimo de 3 horas de aviso.",
+      "Para cancelar o reprogramar, usa el enlace del correo de confirmación.",
+    ],
+  },
   footer: {
     desc: "Medicina General e Integrativa en Ecuador, con un enfoque humano, natural y profundamente compasivo.",
     navHeading: "Navegación",

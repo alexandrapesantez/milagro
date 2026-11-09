@@ -70,7 +70,7 @@ export default async function Servicios() {
             {t.ctaTitle} <span className="grad-text">{t.ctaAccent}</span>
           </h2>
           <p className="lead">{t.ctaLead}</p>
-          <Link href="/#contacto" className="btn btn-gold">
+          <Link href="/agendar" className="btn btn-gold">
             {dict.nav.book} <FiArrowRight />
           </Link>
         </Reveal>

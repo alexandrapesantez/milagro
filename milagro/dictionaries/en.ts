@@ -194,6 +194,51 @@ const en: Dictionary = {
     ctaLead:
       "At Milagro, every service returns to the same promise: you matter, and your care should feel human.",
   },
+  booking: {
+    metaTitle: "Book Appointment",
+    heroEyebrow: "Online booking",
+    heroTitle: "Book your",
+    heroAccent: "Appointment",
+    heroSub:
+      "Choose the type of visit, pick the day and time that suit you best, and you'll receive a confirmation by email.",
+    step1: "Choose the type of appointment",
+    step2: "Pick a day and time",
+    inPerson: "In person",
+    online: "Online · Google Meet",
+    types: [
+      {
+        name: "New Patient",
+        duration: "60 min",
+        online: false,
+        desc: "For new patients: a complete medical history and a personalized care plan.",
+      },
+      {
+        name: "Telemedicine",
+        duration: "45 min",
+        online: true,
+        desc: "A video consultation from wherever you are. You'll receive the Google Meet link when you book.",
+      },
+      {
+        name: "Follow-up",
+        duration: "30 min",
+        online: false,
+        desc: "For patients in treatment: we review your progress and adjust your plan.",
+      },
+      {
+        name: "Exam Review",
+        duration: "15 min",
+        online: false,
+        desc: "Go over your lab or imaging results with the doctor.",
+      },
+    ],
+    calendarTitle: "Booking calendar",
+    openExternal: "Calendar not loading? Open it in a new tab",
+    notes: [
+      "Office hours: Monday to Friday, 10:00 – 12:30 and 15:00 – 18:00.",
+      "You can book up to one month in advance, with at least 3 hours' notice.",
+      "To cancel or reschedule, use the link in your confirmation email.",
+    ],
+  },
   footer: {
     desc: "General and Integrative Medicine in Ecuador, with a humane, natural, and deeply compassionate approach.",
     navHeading: "Navigation",
