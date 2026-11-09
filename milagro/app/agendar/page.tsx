@@ -20,6 +20,7 @@ export default async function Agendar() {
         title={t.heroTitle}
         accent={t.heroAccent}
         sub={t.heroSub}
+        compact
       />
 
       <section className={styles.booking}>

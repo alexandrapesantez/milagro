@@ -192,6 +192,10 @@ export default async function Home() {
             <h2 className={`title-lg ${styles.sectionTitle}`}>
               {t.contactTitle} <span className="grad-text">{t.contactAccent}</span>
             </h2>
+            <p className="lead">{t.contactLead}</p>
+            <Link href="/agendar" className={styles.contactBook}>
+              {t.contactBook} <FiArrowRight />
+            </Link>
             <ul className={styles.contactList}>
               <li>
                 <span className={styles.contactIcon}>

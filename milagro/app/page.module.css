@@ -482,6 +482,19 @@
   align-items: start;
 }
 
+.contactBook {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  color: var(--teal-deep);
+  font-weight: 600;
+}
+
+.contactBook:hover {
+  text-decoration: underline;
+}
+
 .contactList {
   list-style: none;
   display: flex;

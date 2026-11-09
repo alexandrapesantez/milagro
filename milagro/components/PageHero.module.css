@@ -77,6 +77,20 @@
   color: var(--white);
 }
 
+/* Shorter hero for pages where the content below should be visible right away. */
+.compact {
+  padding: clamp(7.5rem, 11vw, 8.5rem) 0 clamp(2.5rem, 4vw, 3rem);
+}
+
+.compact .title {
+  margin-bottom: 0.9rem;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+}
+
+.compact .motifSm {
+  display: none;
+}
+
 @media (max-width: 700px) {
   .motifSm {
     display: none;

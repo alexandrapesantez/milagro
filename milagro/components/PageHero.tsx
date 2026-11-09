@@ -6,11 +6,12 @@ type Props = {
   title: React.ReactNode;
   accent: string;
   sub: string;
+  compact?: boolean;
 };
 
-export default function PageHero({ eyebrow, title, accent, sub }: Props) {
+export default function PageHero({ eyebrow, title, accent, sub, compact = false }: Props) {
   return (
-    <section className={`${styles.hero} on-dark`}>
+    <section className={`${styles.hero} ${compact ? styles.compact : ""} on-dark`}>
       <div className={styles.blobA} />
       <div className={styles.blobB} />
       <Chakana className={styles.motifLg} strokeWidth={0.3} />
